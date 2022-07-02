@@ -1,0 +1,13 @@
+.content-bar{
+    background-color: rgba(255, 255, 255, 1);
+}
+div.absolute {
+    position: absolute;
+    left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+  } 
+  div.parent {
+    position: relative;
+  }

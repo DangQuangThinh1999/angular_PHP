@@ -1,0 +1,42 @@
+<div class="row" style="margin-top: -30px;">
+    <div class="col-md-3 product-men" *ngFor="let sanpham of sanphams">
+      <div class="men-pro-item simpleCart_shelfItem">
+        <div class="men-thumb-item">
+          <img style="min-height: 425px;" src="assets/img/{{sanpham.ANHBIA}}" alt="" class="pro-image-front">
+          <img src="assets/img/{{sanpham.ANHBIA}}" alt="" class="pro-image-back">
+          <div class="men-cart-pro">
+            <div class="inner-men-cart-pro">
+              <a href="" class="link-product-add-cart" routerLink="details" onclick="topFunction()" (click)="selectSach(sanpham)" (click)="XemDetails()">Xem sách</a>
+            </div>
+          </div>
+          <!-- <span class="product-new-top">New</span> -->
+  
+        </div>
+        <div class="item-info-product " style="min-height:200px">
+          <h4>{{sanpham.TENSP}}</h4>
+          <div class="info-product-price absolute1">
+            <span class="item_price" id="tl">{{sanpham.GIABAN}} đ</span>
+            <!-- <del>$69.71</del> -->
+          </div>
+          <div class="absolute snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+            <form #f="ngForm">
+              <input type="hidden" name="MASP" [(ngModel)]="selectedSach.MASP">
+              <input type="hidden" name="TENSP" [(ngModel)]="selectedSach.TENSP">
+              <input type="hidden" name="GIABAN" [(ngModel)]="selectedSach.GIABAN">
+              <input type="hidden" name="SOTRANG" [(ngModel)]="selectedSach.SOTRANG">
+              <input type="hidden" name="NGONNGU" [(ngModel)]="selectedSach.NGONNGU">
+              <input type="hidden" name="KICHTHUOC" [(ngModel)]="selectedSach.KICHTHUOC">
+              <input type="hidden" name="TRONGLUONG" [(ngModel)]="selectedSach.TRONGLUONG">
+              <input type="hidden" name="MOTA" [(ngModel)]="selectedSach.MOTA">
+              <input type="hidden" name="ANHBIA" [(ngModel)]="selectedSach.ANHBIA">
+              <input type="hidden" name="NGAYCAPNHAT" [(ngModel)]="selectedSach.NGAYCAPNHAT">
+              <input type="hidden" name="SOLUONGTON" [(ngModel)]="selectedSach.SOLUONGTON">
+              <input type="hidden" name="TENLOAI" [(ngModel)]="selectedSach.TENLOAI">
+              <input type="hidden" name="TENXB" [(ngModel)]="selectedSach.TENXB">
+              <input type="submit" name="submit" value="Thêm vào giỏ hàng" class="button">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,119 @@
+
+    <div class="container">
+      <div class="row">
+        <div class="col-mb-3"></div>
+        <div class="col-mb-6">
+          <h1
+            style="font-weight: bold; text-align: center; height: auto"
+            id="demo-text"
+          >
+            Admin Management System
+          </h1>
+          <button
+            onclick="document.getElementById('id01').style.display='block'"
+            style="width: auto"
+          >
+            CREATE NEW
+          </button>
+
+          <div id="id01" class="modal" style="padding-top: 100px">
+            <form #f="ngForm" class="modal-content animate">
+              <span
+                onclick="document.getElementById('id01').style.display='none'"
+                class="close"
+                (click)="ClearfDSAdmin(f)"
+                title="Close Modal"
+                >&times;</span
+              >
+              <div class="container">
+                <label>USER</label>
+                <input
+                  type="text"
+                  name="USER"
+                  [(ngModel)]="selectedDSAdmin.USER"
+                /><br />
+                <label>PASSWORD</label>
+
+                <input
+                  type="password"
+                  name="PASSWORD"
+                  [(ngModel)]="selectedDSAdmin.PASSWORD"
+                />
+
+                <br />
+                <label>HỌ VÀ TÊN</label>
+                <input
+                  type="text"
+                  name="HOTEN"
+                  [(ngModel)]="selectedDSAdmin.HOTEN"
+                />
+                <br />
+                <button
+                  type="button"
+                  (click)="UpdateOrCreateDSAdmin(f)"
+                  onclick="document.getElementById('id01').style.display='none'"
+                >
+                  {{ nut }}
+                </button>
+
+                <button
+                  type="button"
+                  onclick="document.getElementById('id01').style.display='none'"
+                  class="cancelbtn"
+                  (click)="ClearfDSAdmin(f)"
+                >
+                  Cancel
+                </button>
+              </div>
+              <span
+                onclick="document.getElementById('id01').style.display='none'"
+                class="close"
+                title="Close Modal"
+                >&times;</span
+              >
+            </form>
+          </div>
+
+          <script>
+            // Get the modal
+            var modal = document.getElementById("id01");
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            };
+          </script>
+          <!---->
+          <br />
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>Mã ADMIN</th>
+              <th>USER</th>
+              <th>PASSWORD</th>
+              <th>HỌ VÀ TÊN</th>
+              <th>Chức năng</th>
+            </tr>
+            <tr *ngFor="let DSAdmin of admins">
+              <td>{{ DSAdmin.MAAD }}</td>
+              <td>{{ DSAdmin.USER }}</td>
+              <td>{{ DSAdmin.PASSWORD }}</td>
+              <td>{{ DSAdmin.HOTEN }}</td>
+              <td>
+                <button
+                  (click)="selectDSAdmin(DSAdmin)"
+                  onclick="document.getElementById('id01').style.display='block'"
+                >
+                  Edit
+                </button>
+                <button id="del" (click)="deleteDSAdmin(DSAdmin.MAAD)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-mb-3"></div>
+      </div>
+    </div>

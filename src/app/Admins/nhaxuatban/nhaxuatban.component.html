@@ -1,0 +1,107 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-mb-3"></div>
+      <div class="col-mb-6">
+        <h1 style="font-weight: bold; text-align: center; height: auto"
+        id="demo-text">Company Management System</h1>
+        <button
+          onclick="document.getElementById('id01').style.display='block'"
+          style="width: auto"
+        >
+          CREATE NEW
+        </button>
+  
+        <div id="id01" class="modal" style="padding-top: 100px">
+          <form #f="ngForm" class="modal-content animate">
+            <span
+              onclick="document.getElementById('id01').style.display='none'"
+              class="close"
+              title="Close Modal"
+              >&times;</span
+            >
+            <div class="container">
+              <label>Tên Xuất bản</label>
+              <input
+                type="text"
+                name="TENXB"
+                [(ngModel)]="selectedDSNhaXuatBan.TENXB"
+              /><br />
+              <label>Địa chỉ</label>
+              <input
+                type="text"
+                name="DIACHI"
+                [(ngModel)]="selectedDSNhaXuatBan.DIACHI"
+              /><br />
+              <label>Điện thoại</label>
+              <input
+                type="text"
+                name="DIENTHOAI"
+                [(ngModel)]="selectedDSNhaXuatBan.DIENTHOAI"
+              />
+  
+              <button
+                type="button"
+                (click)="UpdateOrCreateDSNhaXuatBan(f)"
+                onclick="document.getElementById('id01').style.display='none'"
+              >
+                {{ nut }}
+              </button>
+  
+              <button
+                type="button"
+                onclick="document.getElementById('id01').style.display='none'"
+                class="cancelbtn"
+              >
+                Cancel
+              </button>
+            </div>
+            <span
+              onclick="document.getElementById('id01').style.display='none'"
+              class="close"
+              title="Close Modal"
+              >&times;</span
+            >
+          </form>
+        </div>
+  
+        <script>
+          // Get the modal
+          var modal = document.getElementById("id01");
+  
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function (event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          };
+        </script>
+        <!---->
+  
+        <br />
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>Mã NXB</th>
+            <th>Tên nhà Xuất bản</th>
+            <th>Địa chỉ</th>
+            <th>Điện thoại</th>
+            <th>Chức Năng</th>
+          </tr>
+          <tr *ngFor="let DSNhaXuatBan of nhaxuatbans">
+            <td>{{ DSNhaXuatBan.MANXB }}</td>
+            <td>{{ DSNhaXuatBan.TENXB }}</td>
+            <td>{{ DSNhaXuatBan.DIACHI }}</td>
+            <td>{{ DSNhaXuatBan.DIENTHOAI }}</td>
+            <td>
+              <button (click)="selectDSNhaXuatBan(DSNhaXuatBan)">Edit</button>
+              <button id="del" (click)="deleteDSNhaXuatBan(DSNhaXuatBan.MANXB)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-mb-3"></div>
+    </div>
+  </div>
+  

@@ -1,0 +1,149 @@
+<div class="container">
+    <div class="row">
+      <div class="col-mb-3"></div>
+      <div class="col-mb-6">
+        <h1
+          style="font-weight: bold; text-align: center; height: auto"
+          id="demo-text"
+        >
+          Customer Management System
+        </h1>
+        <button
+          onclick="document.getElementById('id01').style.display='block'"
+          style="width: auto"
+        >
+          CREATE NEW
+        </button>
+  
+        <div id="id01" class="modal" style="padding-top: 100px">
+          <form #f="ngForm" class="modal-content animate">
+            <span
+              onclick="document.getElementById('id01').style.display='none'"
+              class="close"
+              title="Close Modal"
+              >&times;</span
+            >
+            <div class="container">
+              <label>HOTEN</label>
+              <input
+                type="text"
+                name="HOTEN"
+                [(ngModel)]="selectedKhachHang.HOTEN"
+              /><br />
+              <label>TAIKHOAN</label>
+              <input
+                type="text"
+                name="TAIKHOAN"
+                [(ngModel)]="selectedKhachHang.TAIKHOAN"
+              /><br />
+              <label>MATKHAU</label>
+              <input
+                type="text"
+                name="MATKHAU"
+                [(ngModel)]="selectedKhachHang.MATKHAU"
+              /><br />
+              <label>EMAIL</label>
+              <input
+                type="text"
+                name="EMAIL"
+                [(ngModel)]="selectedKhachHang.EMAIL"
+              /><br />
+              <label>GIOITINH</label>
+              <input
+                type="text"
+                name="GIOITINH"
+                [(ngModel)]="selectedKhachHang.GIOITINH"
+              /><br />
+              <label>DIACHIKH</label>
+              <input
+                type="text"
+                name="DIACHIKH"
+                [(ngModel)]="selectedKhachHang.DIACHIKH"
+              /><br />
+              <label>DIENTHOAI</label>
+              <input
+                type="text"
+                name="DIENTHOAI"
+                [(ngModel)]="selectedKhachHang.DIENTHOAI"
+              /><br />
+              <label>NGAYSINH</label>
+              <input
+                type="date"
+                name="NGAYSINH"
+                [(ngModel)]="selectedKhachHang.NGAYSINH"
+              /><br />
+  
+              <button
+                type="button"
+                (click)="UpdateOrCreateKHACHHANG(f)"
+                onclick="document.getElementById('id01').style.display='none'"
+              >
+                {{ nut }}
+              </button>
+  
+              <button
+                type="button"
+                onclick="document.getElementById('id01').style.display='none'"
+                class="cancelbtn"
+              >
+                Cancel
+              </button>
+            </div>
+            <span
+              onclick="document.getElementById('id01').style.display='none'"
+              class="close"
+              title="Close Modal"
+              >&times;</span
+            >
+          </form>
+        </div>
+  
+        <script>
+          // Get the modal
+          var modal = document.getElementById("id01");
+  
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function (event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          };
+        </script>
+        <!---->
+        <br />
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>ID</th>
+            <th>Họ tên khách hàng</th>
+            <th>Tài khoản</th>
+            <th>Mật khẩu</th>
+            <th>Email</th>
+            <th>giới tính</th>
+            <th>Địa chỉ khách hàng</th>
+            <th>Điện thoại</th>
+            <th>Ngày sinh</th>
+            <th>Chức năng</th>
+          </tr>
+          <tr *ngFor="let KHACHHANG of khachhangs">
+            <td>{{ KHACHHANG.MAKH }}</td>
+            <td>{{ KHACHHANG.HOTEN }}</td>
+            <td>{{ KHACHHANG.TAIKHOAN }}</td>
+            <td>{{ KHACHHANG.MATKHAU }}</td>
+            <td>{{ KHACHHANG.EMAIL }}</td>
+            <td>{{ KHACHHANG.GIOITINH }}</td>
+            <td>{{ KHACHHANG.DIACHIKH }}</td>
+            <td>{{ KHACHHANG.DIENTHOAI }}</td>
+            <td>{{ KHACHHANG.NGAYSINH }}</td>
+            <td>
+              <button (click)="selectKhachHang(KHACHHANG)">Edit</button>
+              <button id="del" (click)="deleteKhachHang(KHACHHANG.MAKH)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-mb-3"></div>
+    </div>
+  </div>
+  

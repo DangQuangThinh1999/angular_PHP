@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="row">
+  <div class="col-4">
+    <img
+      style="width: 400px; padding-top: 90px"
+      src="assets/img/bookstorebrand.jpg"
+    />
+  </div>
+  <div class="col-8" style="padding-top: 10px; padding-right: 100px">
+    <app-carousel></app-carousel>
+  </div>
+</div>
+<hr id="demo-hr" />
+<!-- <div class="row">
+  <div class="col-3" ></div>
+  <div class="col-9">
+    <app-details></app-details>
+
+  </div> -->
+<div class="row">
+  <div class="col-3">
+    <app-leftside></app-leftside>
+  </div>
+  <div class="col-9">
+    <!-- <app-test></app-test> -->
+    <!-- <app-rightside></app-rightside>  -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div style="margin-top: 100px"></div>
+    <app-footer></app-footer>
+  </div>
+</div>
